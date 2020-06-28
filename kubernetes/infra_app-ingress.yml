@@ -1,0 +1,16 @@
+ apiVersion: networking.k8s.io/v1beta1
+ kind: Ingress
+ metadata:
+   name: infra-app-ingress
+   namespace: infra
+   annotations:
+     nginx.ingress.kubernetes.io/rewrite-target: /
+ spec:
+   rules:
+   - host: infra-app.info
+     http:
+       paths:
+       - path: /
+         backend:
+           serviceName: infra-app-svc
+           servicePort: 5001

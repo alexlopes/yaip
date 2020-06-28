@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: infra-app
+  namespace: infra
+  labels:
+    app: infra-app
+spec:
+  replicas: 5
+  strategy:
+        type: RollingUpdate
+        rollingUpdate:
+           maxUnavailable: 2    
+  selector:
+    matchLabels:
+      app: infra-app
+  template:
+    metadata:
+      labels:
+        app: infra-app
+    spec:
+      containers:
+        - name: infra-app
+          image: lopesalex/infra-app:0.0.01
+          ports:
+            - containerPort: 5000
+              protocol: TCP
+          env:
+            - name: "PORT"
+              value: "5000"          
+          resources:
+            requests:
+              memory: "10Mi"
+              cpu: "5m"
+            limits:
+              memory: "61Mi" # == 64Mb
+              cpu: "10m"
