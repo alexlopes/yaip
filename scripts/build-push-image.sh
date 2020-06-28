@@ -10,6 +10,8 @@ docker build --build-arg REPOSITORY=${REPOSITORY_NAME} \
 
 echo "${DOCKERHUB_TOKEN}" | docker login --username "${DOCKER_USER}"  --password-stdin
 
+echo "Pushing image: ${IMAGE_NAME}"
+
 docker push "${IMAGE_NAME}"
 
 echo "Pushed image: ${IMAGE_NAME}"
