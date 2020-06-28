@@ -1,0 +1,29 @@
+version: v1.0
+name: Yet Another Infra Project Build
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: "Build and Publish"
+    task:
+      env_vars:
+        - name: GITHUB_URL
+          value: https://github.com
+        - name: GITHUB_API_URL
+          value: https://api.github.com    
+        - name: IMAGE_NAME
+          value: lopeslaex/yaip         
+      secrets:
+        - name: docker
+        - name: repository
+      jobs:
+      - name: Docker build and publish
+        commands:
+          - checkout
+          - ./scripts/build-push-image.sh
+      prologue:
+        commands:
+          - checkout
+          - ./scripts/get-version.sh
