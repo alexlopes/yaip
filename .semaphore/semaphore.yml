@@ -14,7 +14,7 @@ blocks:
         - name: GITHUB_API_URL
           value: https://api.github.com    
         - name: IMAGE_NAME
-          value: lopeslaex/yaip         
+          value: lopesalex/yaip         
       secrets:
         - name: docker
         - name: repository
