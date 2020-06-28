@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: infra-app
-          image: lopesalex/infra-app:0.0.01
+          image: lopesalex/yaip:v0.0.1
           ports:
             - containerPort: 5000
               protocol: TCP
