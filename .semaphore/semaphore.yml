@@ -21,7 +21,6 @@ blocks:
       jobs:
       - name: Docker build and publish
         commands:
-          - checkout
           - ./scripts/build-push-image.sh
       prologue:
         commands:
