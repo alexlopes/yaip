@@ -10,4 +10,5 @@ GITHUB_RELEASE_LATEST_URL="$GITHUB_API_URL/repos/$REPOSITORY_NAME/releases/lates
 # Latest version
 TAG_VERSION=$(curl -sk $GITHUB_RELEASE_LATEST_URL | grep tag_name | head -n 1 | cut -d '"' -f 4)
 echo ${TAG_VERSION} > version
+echo "Get from : $GITHUB_RELEASE_LATEST_URL"
 echo "Version: $TAG_VERSION"
