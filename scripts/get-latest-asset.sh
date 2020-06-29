@@ -4,7 +4,8 @@
 # Example : get-release.sh yaip/infra-app 
 
 set -e # Exit immediately if a command exits with a non-zero status.
-
+env
+echo ${REPOSITORY_NAME}
 APP_NAME=infra-app
 TARGET=${DIR:-"/tmp"}/$APP_NAME
 
